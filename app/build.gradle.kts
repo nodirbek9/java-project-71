@@ -1,8 +1,21 @@
 plugins {
     id("java")
     application
-    id("com.github.ben-manes.versions") version "0.51.0"
     checkstyle
+    id("org.sonarqube") version "7.1.0.6387"
+    id("com.github.ben-manes.versions") version "0.51.0"
+}
+
+sonar {
+    properties {
+        property("sonar.projectKey", "nodirbek9_java-project-71");
+        property("sonar.organization", "nodirbek9")
+        property("sonar.host.url", "https://sonarcloud.io")
+    }
+}
+checkstyle {
+    toolVersion = "10.12.4"
+    configFile = rootProject.file("config/checkstyle/checkstyle.xml")
 }
 
 application { mainClass.set("hexlet.code.App") }
@@ -14,7 +27,23 @@ repositories {
     mavenCentral()
 }
 
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(21)
+    }
+}
+
 dependencies {
+    testImplementation(platform("org.junit:junit-bom:5.10.0"))
+    testImplementation("org.junit.jupiter:junit-jupiter")
+    implementation("info.picocli:picocli:4.7.5")
+    annotationProcessor("info.picocli:picocli-codegen:4.7.5")
+    implementation("info.picocli:picocli:4.7.5")
+    annotationProcessor("info.picocli:picocli-codegen:4.7.5")
+
+    //Jackson для парсинга JSON
+    implementation("com.fasterxml.jackson.core:jackson-databind:2.15.2")
+    // или
     testImplementation(platform("org.junit:junit-bom:5.10.0"))
     testImplementation("org.junit.jupiter:junit-jupiter")
 }
