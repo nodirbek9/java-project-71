@@ -1,9 +1,24 @@
 plugins {
     id("java")
+    id("jacoco")
     application
     checkstyle
     id("org.sonarqube") version "7.1.0.6387"
     id("com.github.ben-manes.versions") version "0.51.0"
+}
+jacoco {
+    toolVersion = "0.8.14"
+}
+tasks.test {
+    finalizedBy(tasks.jacocoTestReport)
+}
+tasks.jacocoTestReport {
+    dependsOn(tasks.test)
+    reports {
+        xml.required = false
+        csv.required = false
+        html.outputLocation = layout.buildDirectory.dir("jacocoHtml")
+    }
 }
 
 sonar {

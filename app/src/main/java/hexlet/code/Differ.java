@@ -10,37 +10,37 @@ import java.util.Map;
 
 public class Differ {
     public static String generate(String filePath1, String filePath2) throws Exception {
-        var map_1 = getData(readJsonToString(filePath1));
-        var map_2 = getData(readJsonToString(filePath2));
-        var result_sort = new ArrayList<String>();
+        var map1 = getData(readJsonToString(filePath1));
+        var map2 = getData(readJsonToString(filePath2));
+        var resultMap = new ArrayList<String>();
         String result = "{"+"\n";
-        var entries1 = map_1.keySet();
-        var entries2 = map_2.keySet();
+        var entries1 = map1.keySet();
+        var entries2 = map2.keySet();
         for (var entry1 : entries1) {
-            if (!result_sort.contains(entry1)) {
-                result_sort.add(entry1);
+            if (!resultMap.contains(entry1) && entry1.length()>1) {
+                resultMap.add(entry1);
             }
         }
         for (var entry2 : entries2) {
-            if (!result_sort.contains(entry2)) {
-                result_sort.add(entry2);
+            if (!resultMap.contains(entry2) && entry2.length()>1) {
+                resultMap.add(entry2);
             }
         }
-        Collections.sort(result_sort);
-        for (var key : result_sort) {
-            if (map_1.containsKey(key) && map_2.containsKey(key)) {
-                if (map_1.get(key).equals(map_2.get(key))) {
-                    result += "   "+key + ": " + map_1.get(key)+"\n";
+        Collections.sort(resultMap);
+        for (var key : resultMap) {
+            if (map1.containsKey(key) && map2.containsKey(key)) {
+                if (map1.get(key).equals(map2.get(key))) {
+                    result += "   "+key + ": " + map1.get(key)+"\n";
                 } else {
-                    result += " - " + key + ": " + map_1.get(key) + "\n" +
-                              " + " + key + ": " + map_2.get(key)+"\n";
+                    result += " - " + key + ": " + map1.get(key) + "\n" +
+                              " + " + key + ": " + map2.get(key)+"\n";
                 }
 
-            } else if (map_1.containsKey(key) && !map_2.containsKey(key)) {
-                result += " - " + key + ": " + map_1.get(key) + "\n";
+            } else if (map1.containsKey(key) && !map2.containsKey(key)) {
+                result += " - " + key + ": " + map1.get(key) + "\n";
 
-            } else if (map_2.containsKey(key) && !map_1.containsKey(key)) {
-                result += " + " + key + ": " + map_2.get(key) + "\n";
+            } else if (map2.containsKey(key) && !map1.containsKey(key)) {
+                result += " + " + key + ": " + map2.get(key) + "\n";
             }
         }
         return result + "}";
@@ -52,8 +52,7 @@ public class Differ {
 
     public static String readJsonToString(String filePath) throws Exception {
 
-        String content = Files.readString(Paths.get(filePath));
-        return content;
+        return Files.readString(Paths.get(filePath));
     }
     public static Map<String, Object> parse(String json) throws Exception {
 
