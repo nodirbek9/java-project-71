@@ -45,6 +45,6 @@ jobs:
         run: ./gradlew checkstyleMain checkstyleTest
 
       - name: Build and analyze
-	env:
+        env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         run: cd app && ./gradlew build jacocoTestReport sonar --info
