@@ -40,12 +40,11 @@ jobs:
       - name: Run tests with coverage
         run: |
           ./gradlew test jacocoTestReport
-      
+     
       - name: Run checkstyle
         run: ./gradlew checkstyleMain checkstyleTest
 
       - name: Build and analyze
-        env:
+	env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-	  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}       
-       run: cd app && ./gradlew build jacocoTestReport sonar --info
+        run: cd app && ./gradlew build jacocoTestReport sonar --info
