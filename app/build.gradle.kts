@@ -17,7 +17,6 @@ tasks.jacocoTestReport {
     reports {
         xml.required = true
         csv.required = false
-        html.outputLocation = layout.buildDirectory.dir("jacocoHtml")
     }
 }
 
@@ -62,7 +61,7 @@ dependencies {
 
     //Jackson для парсинга JSON
     implementation("com.fasterxml.jackson.core:jackson-databind:2.15.2")
-    // или
+    implementation("com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:2.15.2")
     testImplementation(platform("org.junit:junit-bom:5.10.0"))
     testImplementation("org.junit.jupiter:junit-jupiter")
 }

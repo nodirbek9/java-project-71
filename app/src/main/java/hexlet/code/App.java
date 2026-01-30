@@ -57,7 +57,7 @@ public class App implements Callable<String> {
             return Differ.generate("file1.json", "file2.json");
         }
 
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) {
         int exitCode = new CommandLine(new App()).execute(args);
         System.exit(exitCode);
     }

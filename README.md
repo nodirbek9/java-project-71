@@ -3,3 +3,6 @@
 [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=nodirbek9_java-project-71&metric=coverage)](https://sonarcloud.io/summary/new_code?id=nodirbek9_java-project-71)
 [![Actions Status](https://github.com/nodirbek9/java-project-71/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/nodirbek9/java-project-71/actions)
 My Project
+
+Первый резултать от json файлов: https://asciinema.org/a/Wr3SKi7qlW47MtNP
+Результать для Yaml файлов: https://asciinema.org/a/AQiURjm1mRqWjdMK

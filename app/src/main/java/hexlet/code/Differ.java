@@ -1,17 +1,12 @@
 package hexlet.code;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Map;
 
 public class Differ {
     public static String generate(String filePath1, String filePath2) throws Exception {
-        var map1 = getData(readJsonToString(filePath1));
-        var map2 = getData(readJsonToString(filePath2));
+        var map1 = Parser.parse(filePath1);
+        var map2 = Parser.parse(filePath2);
         var resultMap = new ArrayList<String>();
         String result = "{"+"\n";
         var entries1 = map1.keySet();
@@ -44,19 +39,5 @@ public class Differ {
             }
         }
         return result + "}";
-    }
-
-    public static Map<String, Object> getData(String content) throws Exception {
-        return parse(content);
-    }
-
-    public static String readJsonToString(String filePath) throws Exception {
-
-        return Files.readString(Paths.get(filePath));
-    }
-    public static Map<String, Object> parse(String json) throws Exception {
-
-        ObjectMapper mapper = new ObjectMapper();
-        return mapper.readValue(json, Map.class);
     }
 }
