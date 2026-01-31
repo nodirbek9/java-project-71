@@ -53,7 +53,7 @@ public class App implements Callable<String> {
         @Override
         public String call() throws Exception {
             // Основная логика будет здесь
-            System.out.println(Differ.generate("file1.json", "file2.json"));
+            System.out.println(Differ.generate("file3.json", "file4.json"));
             return Differ.generate("file1.json", "file2.json");
         }
 
