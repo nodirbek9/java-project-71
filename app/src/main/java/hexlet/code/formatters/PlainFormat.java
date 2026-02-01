@@ -31,11 +31,17 @@ public class PlainFormat implements Format {
                             .append(stringPrint(node.getNewValue()))
                             .append("\n");
 
-                default -> System.out.println("Unknown user choice" + node.getStatus());
+                default -> {
+                    // UNCHANGED / NESTED — пропускаем
+                }
             }
+        }
+        if (!result.isEmpty()) {
+            result.setLength(result.length() - 1);
         }
         return result.toString();
     }
+
 
     private static String stringPrint(Object value) {
         if (value == null) {
