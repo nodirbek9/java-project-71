@@ -5,7 +5,7 @@ public class DiffNode {
     private Status status;
     private Object oldValue;
     private Object newValue;
-      
+
     public DiffNode(String key, Status status, Object oldValue, Object newValue) {
         this.key = key;
         this.status = status;

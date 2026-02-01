@@ -13,10 +13,10 @@ public class Parser {
         String content = Files.readString(Paths.get(filePath));
         if (filePath.endsWith(".json")) {
             return parseJson(content);
-        } else if (filePath.endsWith(".yaml") || filePath.endsWith("yml")) {
+        } else if (filePath.endsWith(".yaml") || filePath.endsWith(".yml")) {
             return parseYaml(content);
         } else {
-            throw new Exception("Unsupported file format");
+            throw new IllegalArgumentException("Unsupported file format" + filePath);
         }
     }
 

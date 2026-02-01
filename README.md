@@ -7,3 +7,4 @@ My Project
 Первый резултать от json файлов: https://asciinema.org/a/Wr3SKi7qlW47MtNP
 Результать для Yaml файлов: https://asciinema.org/a/AQiURjm1mRqWjdMK
 Пример демонстрации для вложенных структур: https://asciinema.org/a/FIuxE09YiGGtmJ3q
+Пример демонстрации для стиля plain: https://asciinema.org/a/vmBSOU9AzGZmTeUQ

@@ -22,6 +22,7 @@ public class Diff {
     public void addChanged(String key, Object oldValue, Object newValue) {
         nodes.add(new DiffNode(key, Status.CHANGED, oldValue, newValue));
     }
+
     public List<DiffNode> getNodes() {
         return nodes;
     }

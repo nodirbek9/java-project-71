@@ -37,24 +37,11 @@ public class App implements Callable<String> {
         )
         private String filePath2;
 
-        @Option(
-                names = { "-h", "--help" },
-                usageHelp = true,
-                description = "Show this help message and exit."
-        )
-        private boolean helpRequested = false;
-
-        @Option(
-                names = { "-V", "--version" },
-                versionHelp = true,
-                description = "Print version information and exit."
-        )
-        private boolean versionRequested = false;
         @Override
         public String call() throws Exception {
-            // Основная логика будет здесь
-            System.out.println(Differ.generate("file3.json", "file4.json"));
-            return Differ.generate("file1.json", "file2.json");
+            String result = Differ.generate(filePath1, filePath2, format);
+            System.out.println(result);
+            return null;
         }
 
     public static void main(String[] args) {
