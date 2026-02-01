@@ -4,5 +4,5 @@ import hexlet.code.Diff;
 
 public interface Format {
 
-    public String format(Diff diff);
+    public String format(Diff diff) throws Exception;
 }
