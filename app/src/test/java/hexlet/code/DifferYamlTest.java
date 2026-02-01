@@ -8,7 +8,7 @@ import java.util.Objects;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class DifferTestYaml {
+class DifferYamlTest {
 
     private Path getPath(String resource) throws Exception {
         return Paths.get(
@@ -19,7 +19,7 @@ public class DifferTestYaml {
     }
 
     @Test
-    public void testDifferMethod() throws Exception {
+    void testDifferMethod() throws Exception {
         var expected = Files.readString(getPath("fixtures/yaml/expected.txt"));
         var result = Differ.generate(getPath("fixtures/yaml/file1.yaml").toString(),
                 getPath("fixtures/yaml/file2.yaml").toString());
@@ -27,7 +27,7 @@ public class DifferTestYaml {
     }
 
     @Test
-    public void testAddedKey() throws Exception {
+    void testAddedKey() throws Exception {
         var expected = Files.readString(getPath("fixtures/yaml/added/expected.txt"));
         var result = Differ.generate(getPath("fixtures/yaml/added/file1.yaml").toString(),
                 getPath("fixtures/yaml/added/file2.yaml").toString());
@@ -35,7 +35,7 @@ public class DifferTestYaml {
     }
 
     @Test
-    public void testRemovedKey() throws Exception {
+    void testRemovedKey() throws Exception {
         var expected = Files.readString(getPath("fixtures/yaml/removed/expected.txt"));
         var result = Differ.generate(getPath("fixtures/yaml/removed/file1.yaml").toString(),
                 getPath("fixtures/yaml/removed/file2.yaml").toString());
@@ -43,7 +43,7 @@ public class DifferTestYaml {
     }
 
     @Test
-    public void testChangedValue() throws Exception {
+    void testChangedValue() throws Exception {
         var expected = Files.readString(getPath("fixtures/yaml/changed/expected.txt"));
         var result = Differ.generate(getPath("fixtures/yaml/changed/file1.yaml").toString(),
                 getPath("fixtures/yaml/changed/file2.yaml").toString());
@@ -51,7 +51,7 @@ public class DifferTestYaml {
     }
 
     @Test
-    public void testSameFiles() throws Exception {
+    void testSameFiles() throws Exception {
         var expected = Files.readString(getPath("fixtures/yaml/same/expected.txt"));
         var result = Differ.generate(getPath("fixtures/yaml/same/file1.yaml").toString(),
                 getPath("fixtures/yaml/same/file1.yaml").toString());

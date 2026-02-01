@@ -1,10 +1,10 @@
 package hexlet.code;
 
 public class DiffNode {
-    private String key;
-    private Status status;
-    private Object oldValue;
-    private Object newValue;
+    private final String key;
+    private final Status status;
+    private final Object oldValue;
+    private final Object newValue;
 
     public DiffNode(String key, Status status, Object oldValue, Object newValue) {
         this.key = key;

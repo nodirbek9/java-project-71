@@ -9,7 +9,7 @@ import java.util.Objects;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class DifferTestPlain {
+class DifferPlainTest {
     private Path getPath(String resource) throws Exception {
         return Paths.get(
                 Objects.requireNonNull(
@@ -19,7 +19,7 @@ public class DifferTestPlain {
     }
 
     @Test
-    public void testDifferMethodPlain() throws Exception {
+    void testDifferMethodPlain() throws Exception {
         var expected = Files.readString(getPath("fixtures/plain/expected.txt"));
         var result = Differ.generate(getPath("fixtures/plain/file1.json").toString(),
                 getPath("fixtures/plain/file2.json").toString(), "plain");

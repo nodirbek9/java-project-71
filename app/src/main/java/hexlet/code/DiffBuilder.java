@@ -6,17 +6,17 @@ import java.util.Set;
 import java.util.TreeSet;
 
 public class DiffBuilder {
+    private DiffBuilder() {
+    }
 
     public static Diff build(Map<String, Object> map1, Map<String, Object> map2) {
         Diff diff = new Diff();
-        var entries1 = map1.keySet();
-        var entries2 = map2.keySet();
         Set<String> allKeys = new TreeSet<>(map1.keySet());
         allKeys.addAll(map2.keySet());
 
         for (String key : allKeys) {
-            boolean has1 = map1.containsKey(key) && !key.isEmpty();
-            boolean has2 = map2.containsKey(key) && !key.isEmpty();
+            boolean has1 = map1.containsKey(key);
+            boolean has2 = map2.containsKey(key);
 
             Object value1 = map1.get(key);
             Object value2 = map2.get(key);

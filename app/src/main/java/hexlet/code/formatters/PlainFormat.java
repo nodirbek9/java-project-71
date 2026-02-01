@@ -6,30 +6,32 @@ import java.util.List;
 import java.util.Map;
 
 public class PlainFormat implements Format {
+    private static final String PROPERTY = "Property '";
     public String format(Diff diff) {
         StringBuilder result = new StringBuilder();
         for (var node : diff.getNodes()) {
             switch (node.getStatus()) {
-                case ADDED -> result.append("Property '")
+                case ADDED -> result.append(PROPERTY)
                         .append(node.getKey())
                         .append("' was added with value: ")
                         .append(stringPrint(node.getNewValue()))
                         .append("\n");
 
-                case REMOVED -> result.append("Property '")
+                case REMOVED -> result.append(PROPERTY)
                         .append(node.getKey())
                         .append("' was removed")
                         .append("\n");
 
-                case CHANGED -> {
-                    result.append("Property '")
+                case CHANGED ->
+                    result.append(PROPERTY)
                             .append(node.getKey())
                             .append("' was updated. From ")
                             .append(stringPrint(node.getOldValue()))
                             .append(" to ")
                             .append(stringPrint(node.getNewValue()))
                             .append("\n");
-                }
+
+                default -> System.out.println("Unknown user choice" + node.getStatus());
             }
         }
         return result.toString();
