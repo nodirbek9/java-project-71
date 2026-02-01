@@ -12,7 +12,7 @@ import java.util.concurrent.Callable;
         version = "1.0",
         description = "Compares two configuration files and shows a difference."
 )
-public class App implements Callable<String> {
+public class App implements Callable<Integer> {
 
     @Option(
             names = {"-f", "--format"},
@@ -38,7 +38,7 @@ public class App implements Callable<String> {
     private String filePath2;
 
     @Override
-    public String call() throws Exception {
+    public Integer call() throws Exception {
         String result = Differ.generate(filePath1, filePath2, format);
         System.out.println(result);
         return null;

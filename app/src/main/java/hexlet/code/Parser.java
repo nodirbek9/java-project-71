@@ -7,7 +7,7 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.Map;
 
-public class Parser {
+public final class Parser {
     static final ObjectMapper JSON_MAPPER = new ObjectMapper();
     static final ObjectMapper YAML_MAPPER = new ObjectMapper(new YAMLFactory());
 

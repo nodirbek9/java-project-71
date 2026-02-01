@@ -2,7 +2,7 @@ package hexlet.code;
 
 import hexlet.code.formatters.Formatter;
 
-public class Differ {
+public final class Differ {
     private Differ() {
     }
 

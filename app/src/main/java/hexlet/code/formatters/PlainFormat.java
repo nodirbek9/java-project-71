@@ -5,7 +5,7 @@ import hexlet.code.Diff;
 import java.util.List;
 import java.util.Map;
 
-public class PlainFormat implements Format {
+public final class PlainFormat implements Format {
     private static final String PROPERTY = "Property '";
     public String format(Diff diff) {
         StringBuilder result = new StringBuilder();

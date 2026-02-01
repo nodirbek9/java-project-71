@@ -2,7 +2,7 @@ package hexlet.code.formatters;
 
 import hexlet.code.Diff;
 
-public class StylishFormat implements Format {
+public final class StylishFormat implements Format {
     @Override
     public String format(Diff diff) {
         StringBuilder result = new StringBuilder("{\n");
@@ -39,6 +39,7 @@ public class StylishFormat implements Format {
                             .append(node.getNewValue())
                             .append("\n");
                 }
+                default -> throw new IllegalStateException("Unknown status");
             }
         }
 

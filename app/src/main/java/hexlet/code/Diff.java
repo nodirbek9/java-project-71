@@ -3,7 +3,7 @@ package hexlet.code;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Diff {
+public final class Diff {
 
     private final List<DiffNode> nodes = new ArrayList<>();
 

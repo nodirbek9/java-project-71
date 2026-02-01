@@ -5,7 +5,7 @@ import java.util.Objects;
 import java.util.Set;
 import java.util.TreeSet;
 
-public class DiffBuilder {
+public final class DiffBuilder {
     private DiffBuilder() {
     }
 
