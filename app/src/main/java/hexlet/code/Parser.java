@@ -3,8 +3,6 @@ package hexlet.code;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.dataformat.yaml.YAMLFactory;
 
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.util.Map;
 
 public final class Parser {
@@ -14,8 +12,8 @@ public final class Parser {
     private Parser() {
     }
 
-    public static Map<String, Object> parse(String filePath) throws Exception {
-        String content = Files.readString(Paths.get(filePath));
+    public static Map<String, Object> parse(String filePath, String content) throws Exception {
+
         if (filePath.endsWith(".json")) {
             return parseJson(content);
         } else if (filePath.endsWith(".yaml") || filePath.endsWith(".yml")) {

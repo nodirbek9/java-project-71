@@ -26,4 +26,11 @@ class DifferPlainTest {
         assertEquals(expected, result);
     }
 
+    @Test
+    void testDifferMethodPlainYaml() throws Exception {
+        var expected = Files.readString(getPath("fixtures/plain/expected_Yml.txt"));
+        var result = Differ.generate(getPath("fixtures/plain/file1.yaml").toString(),
+                getPath("fixtures/plain/file2.yaml").toString(), "plain");
+        assertEquals(expected, result);
+    }
 }

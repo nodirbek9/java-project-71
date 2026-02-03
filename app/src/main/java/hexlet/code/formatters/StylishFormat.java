@@ -39,7 +39,9 @@ public final class StylishFormat implements Format {
                             .append(node.getNewValue())
                             .append("\n");
                 }
-                default -> throw new IllegalStateException("Unknown status");
+                default -> throw new RuntimeException(
+                        "Unknown status: " + node.getStatus() + " for key: " + node.getKey()
+                );
             }
         }
 

@@ -1,6 +1,7 @@
 package hexlet.code;
 
 import org.junit.jupiter.api.Test;
+
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -56,5 +57,21 @@ class DifferJsonTest {
         var result = Differ.generate(getPath("fixtures/json/same/file1.json").toString(),
                 getPath("fixtures/json/same/file1.json").toString());
         assertEquals(expected, result);
+    }
+
+    @Test
+    void testDefaultEqualsStylishJson() throws Exception {
+        var resultDefault = Differ.generate(
+                getPath("fixtures/json/file1.json").toString(),
+                getPath("fixtures/json/file2.json").toString()
+        );
+
+        var resultStylish = Differ.generate(
+                getPath("fixtures/json/file1.json").toString(),
+                getPath("fixtures/json/file2.json").toString(),
+                "stylish"
+        );
+
+        assertEquals(resultStylish, resultDefault);
     }
 }

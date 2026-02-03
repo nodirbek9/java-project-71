@@ -25,4 +25,12 @@ class ForJsonFormatTest {
                 getPath("fixtures/jsonformat/file2.json").toString(), "json");
         assertEquals(expected, result);
     }
+
+    @Test
+    void testForJsonFormatYaml() throws Exception {
+        var expected = Files.readString(getPath("fixtures/jsonformat/expected_Yml.txt"));
+        var result = Differ.generate(getPath("fixtures/jsonformat/file1.yaml").toString(),
+                getPath("fixtures/jsonformat/file2.yaml").toString(), "json");
+        assertEquals(expected, result);
+    }
 }

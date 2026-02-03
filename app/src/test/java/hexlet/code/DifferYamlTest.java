@@ -1,6 +1,7 @@
 package hexlet.code;
 
 import org.junit.jupiter.api.Test;
+
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -56,5 +57,21 @@ class DifferYamlTest {
         var result = Differ.generate(getPath("fixtures/yaml/same/file1.yaml").toString(),
                 getPath("fixtures/yaml/same/file1.yaml").toString());
         assertEquals(expected, result);
+    }
+
+    @Test
+    void testDefaultFormatYaml() throws Exception {
+        var resultDefault = Differ.generate(
+                getPath("fixtures/yaml/default/file1.yaml").toString(),
+                getPath("fixtures/yaml/default/file2.yaml").toString()
+        );
+
+        var resultStylish = Differ.generate(
+                getPath("fixtures/yaml/default/file1.yaml").toString(),
+                getPath("fixtures/yaml/default/file2.yaml").toString(),
+                "stylish"
+        );
+
+        assertEquals(resultStylish, resultDefault);
     }
 }
