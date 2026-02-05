@@ -4,6 +4,7 @@ import hexlet.code.formatters.Formatter;
 
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.Map;
 
 public final class Differ {
     private Differ() {
@@ -12,14 +13,22 @@ public final class Differ {
     public static String generate(String filePath1, String filePath2, String formatName) throws Exception {
         String content1 = Files.readString(Paths.get(filePath1));
         String content2 = Files.readString(Paths.get(filePath2));
-        var map1 = Parser.parse(filePath1, content1);
-        var map2 = Parser.parse(filePath2, content2);
 
+        String format1 = getFormat(filePath1);
+        String format2 = getFormat(filePath2);
+
+        Map<String, Object> map1 = Parser.parse(content1, format1);
+        Map<String, Object> map2 = Parser.parse(content2, format2);
         Diff diff = DiffBuilder.build(map1, map2);
         return Formatter.format(diff, formatName);
     }
 
     public static String generate(String filePath1, String filePath2) throws Exception {
         return generate(filePath1, filePath2, "stylish");
+    }
+
+    private static String getFormat(String path) {
+        int index = path.lastIndexOf('.');
+        return path.substring(index + 1);
     }
 }
