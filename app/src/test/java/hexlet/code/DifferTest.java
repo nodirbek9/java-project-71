@@ -124,19 +124,24 @@ class DifferTest {
     }
 
     @Test
-    void testDefaultFormatEqualsStylish() throws Exception {
+    void testDefaultJsonFormat() throws Exception {
+        var expected = read("fixtures/json/expected.txt");
         var defaultResult = Differ.generate(
                 getPath("fixtures/json/file1.json").toString(),
                 getPath("fixtures/json/file2.json").toString()
         );
 
-        var stylishResult = Differ.generate(
-                getPath("fixtures/json/file1.json").toString(),
-                getPath("fixtures/json/file2.json").toString(),
-                "stylish"
+        assertEquals(expected, defaultResult);
+    }
+    @Test
+    void testDefaultYamlFormat() throws Exception {
+        var expected = read("fixtures/yaml/expected.txt");
+        var defaultResult = Differ.generate(
+                getPath("fixtures/yaml/file1.yaml").toString(),
+                getPath("fixtures/yaml/file2.yaml").toString()
         );
 
-        assertEquals(stylishResult, defaultResult);
+        assertEquals(expected, defaultResult);
     }
 }
 
