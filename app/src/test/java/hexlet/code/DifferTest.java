@@ -29,7 +29,8 @@ class DifferTest {
 
         var result = Differ.generate(
                 getPath("fixtures/json/file1.json").toString(),
-                getPath("fixtures/json/file2.json").toString()
+                getPath("fixtures/json/file2.json").toString(),
+                "stylish"
         );
 
         assertEquals(expected, result);
@@ -41,7 +42,8 @@ class DifferTest {
 
         var result = Differ.generate(
                 getPath("fixtures/yaml/file1.yaml").toString(),
-                getPath("fixtures/yaml/file2.yaml").toString()
+                getPath("fixtures/yaml/file2.yaml").toString(),
+                "stylish"
         );
 
         assertEquals(expected, result);
@@ -53,7 +55,8 @@ class DifferTest {
 
         var result = Differ.generate(
                 getPath("fixtures/json/nested/file1.json").toString(),
-                getPath("fixtures/json/nested/file2.json").toString()
+                getPath("fixtures/json/nested/file2.json").toString(),
+                "stylish"
         );
 
         assertEquals(expected, result);
@@ -65,7 +68,8 @@ class DifferTest {
 
         var result = Differ.generate(
                 getPath("fixtures/yaml/nested/file1.yaml").toString(),
-                getPath("fixtures/yaml/nested/file2.yaml").toString()
+                getPath("fixtures/yaml/nested/file2.yaml").toString(),
+                "stylish"
         );
 
         assertEquals(expected, result);
